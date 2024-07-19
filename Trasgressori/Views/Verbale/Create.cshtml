@@ -1,0 +1,73 @@
+﻿@model Trasgressori.Models.Verbale
+
+@{
+    ViewData["Title"] = "Aggiungi Verbale";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Index", "Verbale")">Gestione Verbali</a></li>
+                <li><a href="@Url.Action("Index", "Anagrafica")">Gestione Trasgressori</a></li>
+                <li><a href="@Url.Action("Index", "TipoViolazione")">Gestione Violazioni</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>@ViewData["Title"]</h1>
+        <form asp-action="Create">
+            <div>
+                <label asp-for="DataViolazione"></label>
+                <input asp-for="DataViolazione" type="date" />
+                <span asp-validation-for="DataViolazione"></span>
+            </div>
+            <div>
+                <label asp-for="IndirizzoViolazione"></label>
+                <input asp-for="IndirizzoViolazione" />
+                <span asp-validation-for="IndirizzoViolazione"></span>
+            </div>
+            <div>
+                <label asp-for="Nominativo_Agente"></label>
+                <input asp-for="Nominativo_Agente" />
+                <span asp-validation-for="Nominativo_Agente"></span>
+            </div>
+            <div>
+                <label asp-for="DataTrascrizioneVerbale"></label>
+                <input asp-for="DataTrascrizioneVerbale" type="date" />
+                <span asp-validation-for="DataTrascrizioneVerbale"></span>
+            </div>
+            <div>
+                <label asp-for="Importo"></label>
+                <input asp-for="Importo" type="number" step="0.01" />
+                <span asp-validation-for="Importo"></span>
+            </div>
+            <div>
+                <label asp-for="DecurtamentoPunti"></label>
+                <input asp-for="DecurtamentoPunti" type="number" />
+                <span asp-validation-for="DecurtamentoPunti"></span>
+            </div>
+            <div>
+                <label asp-for="IdAnagrafica"></label>
+                <select asp-for="IdAnagrafica" asp-items="@(new SelectList(ViewBag.IdAnagrafica, "IdAnagrafica", "Nome"))"></select>
+                <span asp-validation-for="IdAnagrafica"></span>
+            </div>
+            <div>
+                <label asp-for="IdViolazione"></label>
+                <select asp-for="IdViolazione" asp-items="@(new SelectList(ViewBag.IdViolazione, "IdViolazione", "Descrizione"))"></select>
+                <span asp-validation-for="IdViolazione"></span>
+            </div>
+            <button type="submit">Aggiungi</button>
+        </form>
+    </main>
+</body>
+</html>

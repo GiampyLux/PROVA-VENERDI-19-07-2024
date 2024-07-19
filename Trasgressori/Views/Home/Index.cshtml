@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Create", "Verbale")">Aggiungi Verbale</a></li>
+                <li><a href="@Url.Action("Index", "Anagrafica")">Gestione Trasgressori</a></li>
+                <li><a href="@Url.Action("Index", "TipoViolazione")">Gestione Violazioni</a></li>
+            </ul>
+        </nav>
+        <h1>@ViewData["Title"]</h1>
+    </header>
+
+    <main>
+        <p>Benvenuto nella pagina principale!</p>
+    </main>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Il tuo sito di gestione verbali</p>
+    </footer>
+</body>
+</html>

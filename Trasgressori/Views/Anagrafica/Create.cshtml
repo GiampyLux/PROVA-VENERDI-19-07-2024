@@ -1,0 +1,63 @@
+﻿@model Trasgressori.Models.Anagrafica
+
+@{
+    ViewData["Title"] = "Aggiungi Trasgressore";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Index", "Anagrafica")">Gestione Trasgressori</a></li>
+                <li><a href="@Url.Action("Index", "TipoViolazione")">Gestione Violazioni</a></li>
+                <li><a href="@Url.Action("Index", "Verbale")">Gestione Verbali</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>@ViewData["Title"]</h1>
+        <form asp-action="Create">
+            <div>
+                <label asp-for="Cognome"></label>
+                <input asp-for="Cognome" />
+                <span asp-validation-for="Cognome"></span>
+            </div>
+            <div>
+                <label asp-for="Nome"></label>
+                <input asp-for="Nome" />
+                <span asp-validation-for="Nome"></span>
+            </div>
+            <div>
+                <label asp-for="Indirizzo"></label>
+                <input asp-for="Indirizzo" />
+                <span asp-validation-for="Indirizzo"></span>
+            </div>
+            <div>
+                <label asp-for="Città"></label>
+                <input asp-for="Città" />
+                <span asp-validation-for="Città"></span>
+            </div>
+            <div>
+                <label asp-for="CAP"></label>
+                <input asp-for="CAP" />
+                <span asp-validation-for="CAP"></span>
+            </div>
+            <div>
+                <label asp-for="Cod_Fisc"></label>
+                <input asp-for="Cod_Fisc" />
+                <span asp-validation-for="Cod_Fisc"></span>
+            </div>
+            <button type="submit">Aggiungi</button>
+        </form>
+    </main>
+</body>
+</html>

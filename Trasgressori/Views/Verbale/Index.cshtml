@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Trasgressori.Models.Verbale>
+
+@{
+    ViewData["Title"] = "Gestione Verbali";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Create", "Verbale")">Aggiungi Verbale</a></li>
+                <li><a href="@Url.Action("Index", "Anagrafica")">Gestione Trasgressori</a></li>
+                <li><a href="@Url.Action("Index", "TipoViolazione")">Gestione Violazioni</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>@ViewData["Title"]</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Violazione</th>
+                    <th>Indirizzo Violazione</th>
+                    <th>Nominativo Agente</th>
+                    <th>Data Trascrizione</th>
+                    <th>Importo</th>
+                    <th>Decurtamento Punti</th>
+                    <th>Trasgressore</th>
+                    <th>Violazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DataViolazione.ToShortDateString()</td>
+                        <td>@item.IndirizzoViolazione</td>
+                        <td>@item.Nominativo_Agente</td>
+                        <td>@item.DataTrascrizioneVerbale.ToShortDateString()</td>
+                        <td>@item.Importo.ToString("C")</td>
+                        <td>@item.DecurtamentoPunti</td>
+                        <td>@item.Anagrafica?.Nome @item.Anagrafica?.Cognome</td>
+                        <td>@item.TipoViolazione?.Descrizione</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
